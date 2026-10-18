@@ -43,7 +43,7 @@ public class Sala {
         this.descripcion = descripcion;
         this.estado = estado;
     }
-
+    
     public void setId(Long id) {
         this.id = id;
     }
