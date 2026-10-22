@@ -36,8 +36,7 @@ public class SalaService {
 
     //buscar por id
     public Sala buscarSalaPorId(Long id) {
-        if (id == null || id <= 0) { // se valida negativo para mas seguridad a pesar de que el id es autoincrementable
-            throw new IllegalArgumentException("El ID de la sala no es válido");
+        if (id == null || id <= 0) { 
         }
         return salaRepository.findById(id) // esto tiene un optional que contiene el objeto
             .orElseThrow(() -> new SalaNoEncontradaException("No se encontró la sala con ID: " + id));

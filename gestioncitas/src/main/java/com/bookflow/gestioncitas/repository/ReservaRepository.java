@@ -24,5 +24,11 @@ public interface ReservaRepository extends JpaRepository<Reserva,Long> {
         @Param("fechaInicio") LocalDateTime fechaInicio,
         @Param("fechaFinal") LocalDateTime fechaFinal
     );
-    List<Reserva> findBySalaId(Long salaId);
+
+    List<Reserva> findBySalaId(Long salaId); //reservas de una sala
+    
+
+    //Buscar una fecha especifica
+    @Query("SELECT reserva FROM Reserva reserva WHERE :fecha BETWEEN reserva.fechaInicio AND reserva.fechaFinal")
+    List<Reserva> buscarPorFechaEspecifica(@Param("fecha") LocalDateTime fecha);
 }
